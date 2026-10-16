@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">ShieldDNS</string>
+    <string name="accessibility_desc">Blocks Instagram Search and Explore only. ShieldDNS does not store messages, photos, or search content.</string>
+</resources>

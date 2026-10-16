@@ -1,57 +1,70 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
- android:orientation="vertical"
- android:padding="24dp"
- android:gravity="center_horizontal"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
  android:layout_width="match_parent"
  android:layout_height="match_parent">
 
- <TextView
-  android:text="ShieldDNS"
-  android:textSize="30sp"
-  android:textStyle="bold"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"/>
-
- <TextView
-  android:id="@+id/status"
-  android:text="Protection is OFF"
-  android:textSize="18sp"
-  android:paddingTop="24dp"
-  android:paddingBottom="12dp"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"/>
-
- <TextView
-  android:id="@+id/adminStatus"
-  android:text="Removal protection: OFF"
-  android:textSize="16sp"
-  android:paddingBottom="20dp"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"/>
-
- <Button
-  android:id="@+id/start"
-  android:text="START FAMILY FILTER"
+ <LinearLayout
+  android:orientation="vertical"
+  android:padding="24dp"
+  android:gravity="center_horizontal"
   android:layout_width="match_parent"
-  android:layout_height="wrap_content"/>
+  android:layout_height="wrap_content">
 
- <Button
-  android:id="@+id/enableAdmin"
-  android:text="ENABLE REMOVAL PROTECTION"
-  android:layout_marginTop="12dp"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"/>
+  <TextView
+   android:text="ShieldDNS"
+   android:textSize="30sp"
+   android:textStyle="bold"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/>
 
- <Button
-  android:id="@+id/stop"
-  android:text="STOP FILTER"
-  android:layout_marginTop="12dp"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"/>
+  <TextView
+   android:id="@+id/scheduleStatus"
+   android:text="Schedule"
+   android:textSize="18sp"
+   android:paddingTop="20dp"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"/>
 
- <TextView
-  android:text="TEST BUILD 0.2\nDNS-only local VPN with CleanBrowsing Family Filter and fallback resolver. Removal protection uses Android Device Admin; full uninstall blocking is applied automatically only when Android reports ShieldDNS as Device Owner."
-  android:paddingTop="24dp"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"/>
-</LinearLayout>
+  <TextView
+   android:id="@+id/adminStatus"
+   android:text="Removal protection"
+   android:textSize="17sp"
+   android:paddingTop="10dp"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"/>
+
+  <TextView
+   android:id="@+id/status"
+   android:text="Status"
+   android:paddingTop="12dp"
+   android:paddingBottom="20dp"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"/>
+
+  <Button
+   android:id="@+id/start"
+   android:text="GRANT VPN / ARM SCHEDULE"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"/>
+
+  <Button
+   android:id="@+id/enableAdmin"
+   android:text="ENABLE REMOVAL PROTECTION"
+   android:layout_marginTop="12dp"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"/>
+
+  <Button
+   android:id="@+id/accessibility"
+   android:text="ENABLE INSTAGRAM SEARCH BLOCKER"
+   android:layout_marginTop="12dp"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"/>
+
+  <TextView
+   android:text="v0.3 TEST\nAutomatic family filter: 17:00–06:00 daily.\nNo in-app STOP button.\nInstagram Search/Explore blocker uses Android Accessibility only for Instagram UI and stores no content.\nAndroid may still expose a system-level VPN disconnect/recovery path."
+   android:paddingTop="24dp"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"/>
+
+ </LinearLayout>
+</ScrollView>

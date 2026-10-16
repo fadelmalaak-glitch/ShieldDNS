@@ -32,15 +32,15 @@ jobs:
 
       - name: Prepare named APK
         run: |
-          cp app/build/outputs/apk/debug/app-debug.apk ShieldDNS-v0.1-test.apk
-          sha256sum ShieldDNS-v0.1-test.apk > ShieldDNS-v0.1-test.apk.sha256
+          cp app/build/outputs/apk/debug/app-debug.apk ShieldDNS-v0.3-test.apk
+          sha256sum ShieldDNS-v0.3-test.apk > ShieldDNS-v0.3-test.apk.sha256
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ShieldDNS-v0.1-test
+          name: ShieldDNS-v0.3-test
           path: |
-            ShieldDNS-v0.1-test.apk
-            ShieldDNS-v0.1-test.apk.sha256
+            ShieldDNS-v0.3-test.apk
+            ShieldDNS-v0.3-test.apk.sha256
           if-no-files-found: error
           retention-days: 30
