@@ -1,12 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-
  <uses-permission android:name="android.permission.INTERNET"/>
  <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
  <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
  <application
   android:theme="@style/AppTheme"
-  android:label="ShieldDNS v0.5"
+  android:label="ShieldDNS Core"
   android:allowBackup="false"
   android:supportsRtl="true">
 
@@ -27,32 +26,6 @@
     <action android:name="android.net.VpnService"/>
    </intent-filter>
   </service>
-
-  <service
-   android:name=".InstagramSearchBlockerService"
-   android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
-   android:exported="false"
-   android:label="ShieldDNS Instagram Search Blocker">
-   <intent-filter>
-    <action android:name="android.accessibilityservice.AccessibilityService"/>
-   </intent-filter>
-   <meta-data
-    android:name="android.accessibilityservice"
-    android:resource="@xml/accessibility_service_config"/>
-  </service>
-
-  <receiver
-   android:name=".ShieldDeviceAdminReceiver"
-   android:permission="android.permission.BIND_DEVICE_ADMIN"
-   android:exported="true"
-   android:label="ShieldDNS Removal Protection">
-   <meta-data
-    android:name="android.app.device_admin"
-    android:resource="@xml/device_admin"/>
-   <intent-filter>
-    <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
-   </intent-filter>
-  </receiver>
 
   <receiver
    android:name=".ScheduleReceiver"

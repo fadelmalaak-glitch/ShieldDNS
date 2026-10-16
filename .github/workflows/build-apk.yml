@@ -37,20 +37,20 @@ jobs:
           APKSIGNER=$(find "$ANDROID_HOME/build-tools" -type f -name apksigner | sort -V | tail -1)
           "$AAPT" dump badging "$APK" | tee apk-badging.txt
           "$APKSIGNER" verify --verbose --print-certs "$APK" | tee apk-signature.txt
-          grep -q "package: name='com.fady.shielddnsv5'" apk-badging.txt
+          grep -q "package: name='com.fady.shielddnscore'" apk-badging.txt
 
       - name: Prepare named APK
         run: |
-          cp app/build/outputs/apk/debug/app-debug.apk ShieldDNS-v0.5-clean.apk
-          sha256sum ShieldDNS-v0.5-clean.apk > ShieldDNS-v0.5-clean.apk.sha256
+          cp app/build/outputs/apk/debug/app-debug.apk ShieldDNS-v0.6-core.apk
+          sha256sum ShieldDNS-v0.6-core.apk > ShieldDNS-v0.6-core.apk.sha256
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ShieldDNS-v0.5-clean
+          name: ShieldDNS-v0.6-core
           path: |
-            ShieldDNS-v0.5-clean.apk
-            ShieldDNS-v0.5-clean.apk.sha256
+            ShieldDNS-v0.6-core.apk
+            ShieldDNS-v0.6-core.apk.sha256
             apk-badging.txt
             apk-signature.txt
           if-no-files-found: error

@@ -1,70 +1,42 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+ android:orientation="vertical"
+ android:padding="24dp"
+ android:gravity="center_horizontal"
  android:layout_width="match_parent"
  android:layout_height="match_parent">
 
- <LinearLayout
-  android:orientation="vertical"
-  android:padding="24dp"
-  android:gravity="center_horizontal"
+ <TextView
+  android:text="ShieldDNS Core"
+  android:textSize="30sp"
+  android:textStyle="bold"
+  android:layout_width="wrap_content"
+  android:layout_height="wrap_content"/>
+
+ <TextView
+  android:id="@+id/scheduleStatus"
+  android:text="Schedule"
+  android:textSize="18sp"
+  android:paddingTop="24dp"
   android:layout_width="match_parent"
-  android:layout_height="wrap_content">
+  android:layout_height="wrap_content"/>
 
-  <TextView
-   android:text="ShieldDNS"
-   android:textSize="30sp"
-   android:textStyle="bold"
-   android:layout_width="wrap_content"
-   android:layout_height="wrap_content"/>
+ <TextView
+  android:id="@+id/status"
+  android:text="Status"
+  android:paddingTop="12dp"
+  android:paddingBottom="24dp"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"/>
 
-  <TextView
-   android:id="@+id/scheduleStatus"
-   android:text="Schedule"
-   android:textSize="18sp"
-   android:paddingTop="20dp"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"/>
+ <Button
+  android:id="@+id/start"
+  android:text="GRANT VPN / ARM SCHEDULE"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"/>
 
-  <TextView
-   android:id="@+id/adminStatus"
-   android:text="Removal protection"
-   android:textSize="17sp"
-   android:paddingTop="10dp"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"/>
-
-  <TextView
-   android:id="@+id/status"
-   android:text="Status"
-   android:paddingTop="12dp"
-   android:paddingBottom="20dp"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"/>
-
-  <Button
-   android:id="@+id/start"
-   android:text="GRANT VPN / ARM SCHEDULE"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"/>
-
-  <Button
-   android:id="@+id/enableAdmin"
-   android:text="ENABLE REMOVAL PROTECTION"
-   android:layout_marginTop="12dp"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"/>
-
-  <Button
-   android:id="@+id/accessibility"
-   android:text="ENABLE INSTAGRAM SEARCH BLOCKER"
-   android:layout_marginTop="12dp"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"/>
-
-  <TextView
-   android:text="v0.3 TEST\nAutomatic family filter: 17:00–06:00 daily.\nNo in-app STOP button.\nInstagram Search/Explore blocker uses Android Accessibility only for Instagram UI and stores no content.\nAndroid may still expose a system-level VPN disconnect/recovery path."
-   android:paddingTop="24dp"
-   android:layout_width="match_parent"
-   android:layout_height="wrap_content"/>
-
- </LinearLayout>
-</ScrollView>
+ <TextView
+  android:text="Core test build: VPN + daily schedule only. No Accessibility and no Device Administrator in this APK."
+  android:paddingTop="28dp"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"/>
+</LinearLayout>
