@@ -1,0 +1,46 @@
+name: Build ShieldDNS APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main", "master" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle 8.9
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      - name: Build debug APK
+        run: gradle --no-daemon :app:assembleDebug --stacktrace
+
+      - name: Prepare named APK
+        run: |
+          cp app/build/outputs/apk/debug/app-debug.apk ShieldDNS-v0.1-test.apk
+          sha256sum ShieldDNS-v0.1-test.apk > ShieldDNS-v0.1-test.apk.sha256
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ShieldDNS-v0.1-test
+          path: |
+            ShieldDNS-v0.1-test.apk
+            ShieldDNS-v0.1-test.apk.sha256
+          if-no-files-found: error
+          retention-days: 30
