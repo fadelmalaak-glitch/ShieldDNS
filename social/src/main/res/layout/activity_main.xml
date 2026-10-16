@@ -33,7 +33,7 @@
 
   <Button
    android:id="@+id/enable"
-   android:text="REVIEW & ENABLE ACCESSIBILITY"
+   android:text="REVIEW &amp; ENABLE ACCESSIBILITY"
    android:layout_width="match_parent"
    android:layout_height="wrap_content"/>
 
