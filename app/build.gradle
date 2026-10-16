@@ -1,14 +1,14 @@
 plugins { id 'com.android.application' }
 
 android {
-    namespace 'com.fady.shielddns'
+    namespace 'com.fady.shielddnsv5'
     compileSdk 35
 
     defaultConfig {
-        applicationId 'com.fady.shielddns.clean'
+        applicationId 'com.fady.shielddnsv5'
         minSdk 28
-        targetSdk 34
-        versionCode 4
-        versionName '0.4-clean'
+        targetSdk 33
+        versionCode 5
+        versionName '0.5-clean'
     }
 }

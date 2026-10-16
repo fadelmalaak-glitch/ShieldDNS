@@ -1,4 +1,4 @@
-package com.fady.shielddns;
+package com.fady.shielddnsv5;
 
 import android.accessibilityservice.AccessibilityService;
 import android.view.accessibility.AccessibilityEvent;
