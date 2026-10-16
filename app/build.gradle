@@ -5,10 +5,10 @@ android {
     compileSdk 35
 
     defaultConfig {
-        applicationId 'com.fady.shielddns'
+        applicationId 'com.fady.shielddns.clean'
         minSdk 28
-        targetSdk 35
-        versionCode 3
-        versionName '0.3-test'
+        targetSdk 34
+        versionCode 4
+        versionName '0.4-clean'
     }
 }

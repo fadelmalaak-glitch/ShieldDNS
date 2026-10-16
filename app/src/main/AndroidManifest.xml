@@ -7,13 +7,13 @@
 
  <application
   android:theme="@style/AppTheme"
-  android:label="ShieldDNS"
-  android:allowBackup="false">
+  android:label="ShieldDNS Clean"
+  android:allowBackup="false"
+  android:supportsRtl="true">
 
   <activity
    android:name=".MainActivity"
    android:exported="true">
-
    <intent-filter>
     <action android:name="android.intent.action.MAIN"/>
     <category android:name="android.intent.category.LAUNCHER"/>
@@ -25,11 +25,9 @@
    android:permission="android.permission.BIND_VPN_SERVICE"
    android:exported="false"
    android:foregroundServiceType="specialUse">
-
    <property
     android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
     android:value="Scheduled local DNS content filtering"/>
-
    <intent-filter>
     <action android:name="android.net.VpnService"/>
    </intent-filter>
@@ -40,11 +38,9 @@
    android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
    android:exported="false"
    android:label="ShieldDNS Instagram Search Blocker">
-
    <intent-filter>
     <action android:name="android.accessibilityservice.AccessibilityService"/>
    </intent-filter>
-
    <meta-data
     android:name="android.accessibilityservice"
     android:resource="@xml/accessibility_service_config"/>
@@ -55,11 +51,9 @@
    android:permission="android.permission.BIND_DEVICE_ADMIN"
    android:exported="true"
    android:label="ShieldDNS Removal Protection">
-
    <meta-data
     android:name="android.app.device_admin"
     android:resource="@xml/device_admin"/>
-
    <intent-filter>
     <action android:name="android.app.action.DEVICE_ADMIN_ENABLED"/>
    </intent-filter>
@@ -67,8 +61,8 @@
 
   <receiver
    android:name=".ScheduleReceiver"
+   android:enabled="true"
    android:exported="false">
-
    <intent-filter>
     <action android:name="android.intent.action.BOOT_COMPLETED"/>
     <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>
