@@ -1,4 +1,4 @@
 <resources>
  <string name="app_name">ShieldDNS Social</string>
- <string name="accessibility_desc">Blocks Instagram Search and Explore navigation only. No messages, photos, captions, or searches are stored.</string>
+ <string name="accessibility_desc">Blocks Instagram Search and Explore navigation only after user consent. No content is stored or shared.</string>
 </resources>

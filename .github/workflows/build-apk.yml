@@ -27,8 +27,9 @@ jobs:
         with:
           gradle-version: '8.9'
 
-      - name: Build APKs
-        run: gradle --no-daemon clean :app:assembleDebug :social:assembleDebug --stacktrace
+      - name: Build Core APK and Social APK/AAB
+        run: |
+          gradle --no-daemon clean             :app:assembleDebug             :social:assembleDebug             :social:bundleDebug             --stacktrace
 
       - name: Verify APKs
         run: |
@@ -45,29 +46,31 @@ jobs:
           "$APKSIGNER" verify --verbose --print-certs "$SOCIAL" | tee social-signature.txt
           grep -q "package: name='com.fady.shielddnssocial'" social-badging.txt
 
-      - name: Prepare named APKs
+      - name: Prepare artifacts
         run: |
           cp app/build/outputs/apk/debug/app-debug.apk ShieldDNS-v0.6-core.apk
-          cp social/build/outputs/apk/debug/social-debug.apk ShieldDNS-Social-v0.1.apk
-          sha256sum ShieldDNS-v0.6-core.apk > ShieldDNS-v0.6-core.apk.sha256
-          sha256sum ShieldDNS-Social-v0.1.apk > ShieldDNS-Social-v0.1.apk.sha256
+          cp social/build/outputs/apk/debug/social-debug.apk ShieldDNS-Social-v0.2-play.apk
+          cp social/build/outputs/bundle/debug/social-debug.aab ShieldDNS-Social-v0.2-play.aab
+          sha256sum ShieldDNS-Social-v0.2-play.apk > ShieldDNS-Social-v0.2-play.apk.sha256
+          sha256sum ShieldDNS-Social-v0.2-play.aab > ShieldDNS-Social-v0.2-play.aab.sha256
 
-      - name: Upload core artifact
+      - name: Upload Core artifact
         uses: actions/upload-artifact@v4
         with:
           name: ShieldDNS-v0.6-core
           path: |
             ShieldDNS-v0.6-core.apk
-            ShieldDNS-v0.6-core.apk.sha256
             core-badging.txt
             core-signature.txt
 
-      - name: Upload social artifact
+      - name: Upload Social Play-ready artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ShieldDNS-Social-v0.1
+          name: ShieldDNS-Social-v0.2-play
           path: |
-            ShieldDNS-Social-v0.1.apk
-            ShieldDNS-Social-v0.1.apk.sha256
+            ShieldDNS-Social-v0.2-play.apk
+            ShieldDNS-Social-v0.2-play.aab
+            ShieldDNS-Social-v0.2-play.apk.sha256
+            ShieldDNS-Social-v0.2-play.aab.sha256
             social-badging.txt
             social-signature.txt

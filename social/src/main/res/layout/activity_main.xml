@@ -1,29 +1,48 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
- android:orientation="vertical"
- android:padding="24dp"
- android:gravity="center_horizontal"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
  android:layout_width="match_parent"
  android:layout_height="match_parent">
 
- <TextView
-  android:text="ShieldDNS Social"
-  android:textSize="30sp"
-  android:textStyle="bold"
-  android:layout_width="wrap_content"
-  android:layout_height="wrap_content"/>
-
- <TextView
-  android:id="@+id/info"
-  android:textSize="16sp"
-  android:paddingTop="24dp"
-  android:paddingBottom="24dp"
+ <LinearLayout
+  android:orientation="vertical"
+  android:padding="24dp"
+  android:gravity="center_horizontal"
   android:layout_width="match_parent"
-  android:layout_height="wrap_content"/>
+  android:layout_height="wrap_content">
 
- <Button
-  android:id="@+id/enable"
-  android:text="OPEN ACCESSIBILITY SETTINGS"
-  android:layout_width="match_parent"
-  android:layout_height="wrap_content"/>
+  <TextView
+   android:text="ShieldDNS Social"
+   android:textSize="30sp"
+   android:textStyle="bold"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/>
 
-</LinearLayout>
+  <TextView
+   android:text="Instagram Search/Explore blocker"
+   android:textSize="18sp"
+   android:paddingTop="8dp"
+   android:layout_width="wrap_content"
+   android:layout_height="wrap_content"/>
+
+  <TextView
+   android:id="@+id/info"
+   android:textSize="16sp"
+   android:paddingTop="28dp"
+   android:paddingBottom="24dp"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"/>
+
+  <Button
+   android:id="@+id/enable"
+   android:text="REVIEW & ENABLE ACCESSIBILITY"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"/>
+
+  <Button
+   android:id="@+id/privacy"
+   android:text="PRIVACY NOTICE"
+   android:layout_marginTop="12dp"
+   android:layout_width="match_parent"
+   android:layout_height="wrap_content"/>
+
+ </LinearLayout>
+</ScrollView>

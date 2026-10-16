@@ -7,7 +7,25 @@ import android.widget.Toast;
 import java.util.Locale;
 
 public class InstagramSearchBlockerService extends AccessibilityService {
+
+    private static final String PREFS = "shielddns_social_prefs";
+    private static final String CONSENT = "accessibility_consent_v1";
     private long lastBlockAt = 0L;
+
+    @Override
+    protected void onServiceConnected() {
+        super.onServiceConnected();
+
+        boolean consent = getSharedPreferences(PREFS, MODE_PRIVATE)
+                .getBoolean(CONSENT, false);
+
+        if (!consent) {
+            Toast.makeText(this,
+                    "Open ShieldDNS Social and review the disclosure first",
+                    Toast.LENGTH_LONG).show();
+            disableSelf();
+        }
+    }
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
@@ -33,20 +51,29 @@ public class InstagramSearchBlockerService extends AccessibilityService {
 
     private String labelOf(AccessibilityNodeInfo node) {
         StringBuilder s = new StringBuilder();
-        if (node.getText() != null) s.append(node.getText()).append(' ');
-        if (node.getContentDescription() != null) s.append(node.getContentDescription()).append(' ');
 
-        AccessibilityNodeInfo p = node.getParent();
-        if (p != null) {
-            if (p.getText() != null) s.append(p.getText()).append(' ');
-            if (p.getContentDescription() != null) s.append(p.getContentDescription()).append(' ');
+        if (node.getText() != null) {
+            s.append(node.getText()).append(' ');
+        }
+        if (node.getContentDescription() != null) {
+            s.append(node.getContentDescription()).append(' ');
+        }
+
+        AccessibilityNodeInfo parent = node.getParent();
+        if (parent != null) {
+            if (parent.getText() != null) {
+                s.append(parent.getText()).append(' ');
+            }
+            if (parent.getContentDescription() != null) {
+                s.append(parent.getContentDescription()).append(' ');
+            }
         }
 
         return s.toString().trim().toLowerCase(Locale.ROOT);
     }
 
     private boolean isSearchOrExplore(String s) {
-        if (s == null) return false;
+        if (s == null || s.isEmpty()) return false;
 
         return s.equals("search")
                 || s.equals("explore")
@@ -55,10 +82,10 @@ public class InstagramSearchBlockerService extends AccessibilityService {
                 || s.equals("بحث")
                 || s.equals("استكشاف")
                 || s.equals("بحث واستكشاف")
-                || s.contains(" search ")
-                || s.contains(" explore ")
                 || s.startsWith("search ")
-                || s.startsWith("explore ");
+                || s.startsWith("explore ")
+                || s.endsWith(" search")
+                || s.endsWith(" explore");
     }
 
     @Override
