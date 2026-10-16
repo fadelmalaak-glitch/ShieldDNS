@@ -1,4 +1,4 @@
-package com.fady.shielddnsv5;
+package com.fady.shielddnscore;
 
 import android.app.admin.DeviceAdminReceiver;
 import android.content.Context;
