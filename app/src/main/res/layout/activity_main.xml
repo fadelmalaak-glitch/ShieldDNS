@@ -1,0 +1,7 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:orientation="vertical" android:padding="24dp" android:gravity="center_horizontal" android:layout_width="match_parent" android:layout_height="match_parent">
+ <TextView android:text="ShieldDNS" android:textSize="30sp" android:textStyle="bold" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+ <TextView android:id="@+id/status" android:text="Protection is OFF" android:textSize="18sp" android:paddingTop="24dp" android:paddingBottom="24dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+ <Button android:id="@+id/start" android:text="START STRONG FILTER" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+ <Button android:id="@+id/stop" android:text="STOP TEST FILTER" android:layout_marginTop="12dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+ <TextView android:text="TEST BUILD 0.1\nUses CleanBrowsing Family Filter upstream. This build intentionally allows stopping/uninstalling until connectivity is verified on the OPPO Reno 15." android:paddingTop="28dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>
